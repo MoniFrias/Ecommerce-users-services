@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
 import jakarta.validation.Valid;
 import mx.com.Ecommerceusersservices.data.entity.Response;
 import mx.com.Ecommerceusersservices.data.entity.User;
@@ -39,7 +41,7 @@ public class Controller {
 	}
 	
 	@GetMapping(path = "/findById/{id}")
-	public ResponseEntity<Response> findById(@PathVariable Long id){
+	public ResponseEntity<Response> findById(@PathVariable Long id) throws JsonProcessingException{
 		Response response = services.findById(id);
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}

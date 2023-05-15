@@ -13,7 +13,7 @@ import mx.com.Ecommerceusersservices.data.entity.ValidationException;
 public class ControllerAdviceUser {
 
 	@ExceptionHandler(value = ValidationException.class)
-	public ResponseEntity<Response> validationCustomer(final ValidationException validation){
+	public ResponseEntity<Response> validationUser(final ValidationException validation){
 		Response response = new Response(false, validation.getMessage(), null);
 		return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
 	}
